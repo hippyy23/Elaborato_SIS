@@ -1,7 +1,7 @@
 .model sum3_10
 
 .inputs A9 A8 A7 A6 A5 A4 A3 A2 A1 A0 B9 B8 B7 B6 B5 B4 B3 B2 B1 B0 CIN
-.outputs O9 O8 O7 O6 O5 O4 O3 O2 O1 O0
+.outputs O9 O8 O7 O6 O5 O4 O3 O2 O1 O0 COUT
 
 .subckt sum A=A0 B=B0 CIN=CIN \
         O=O0 COUT=C0

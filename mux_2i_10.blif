@@ -1,4 +1,4 @@
-.model mux_2i_10b.blif
+.model mux_2i_10
 
 .inputs S A9 A8 A7 A6 A5 A4 A3 A2 A1 A0
 .outputs O9 O8 O7 O6 O5 O4 O3 O2 O1 O0
