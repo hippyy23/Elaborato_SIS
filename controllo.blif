@@ -1,129 +1,132 @@
 .model controllo
 
-.inputs START C0 C1 C2 C3 CR0 CR1 CR2 CR3 CR4 CR5 CR6 CR7 CR8 CR9 CD0 CD1 CD2 CD3 CD4 CD5 CD6 CD7 CD8 CD9 CD10 CD11 CD12 CD13 CD14 CD15 COK
-.outputs REC ABE BLC CE0 CE1 CE2 CE3 CE4 CE5 CE6 CE7 CE8 CE9
+.inputs START C3 C2 C1 C0 COK
+.outputs REC ABE BLC CDI
 
 .start_kiss
-.i 32		#numero di segnali di ingresso
-.o 13		#numero di segnali di uscita
+.i 6		#numero di segnali di ingresso
+.o 4		#numero di segnali di uscita
+.p 1088		#numero di transizioni
 .s 17		#numero di stati
 .r S0		#stato di reset
 
 #TABELLA TRANSIZIONI
 
 #bancomat non inserito
-0------------------------------- S0 S0 0000000000000
+0----- S0 S0 0000
 
 #bancomat inserito
-1------------------------------- S0 ING1_0 000----------
+1----- S0 ING1_0 0000
 
 #PRIMO TENTATIVO
-0101
+
 #prima cifra errata
--1------------------------------ ING1_0 ERR1_1 000----------
---0----------------------------- ING1_0 ERR1_1 000----------
----1---------------------------- ING1_0 ERR1_1 000----------
-----0--------------------------- ING1_0 ERR1_1 000----------
+-1---- ING1_0 ERR1_1 0000
+--0--- ING1_0 ERR1_1 0000
+---1-- ING1_0 ERR1_1 0000
+----0- ING1_0 ERR1_1 0000
 
 #prima cifra corretta
--0101--------------------------- ING1_0 ING1_1 000----------
+-0101- ING1_0 ING1_1 0000
 
 #seconda cifra errata
--1------------------------------ ING1_1 ERR1_2 000----------
---0----------------------------- ING1_1 ERR1_2 000----------
----1---------------------------- ING1_1 ERR1_2 000----------
-----0--------------------------- ING1_1 ERR1_2 000----------
+-1---- ING1_1 ERR1_2 0000
+--0--- ING1_1 ERR1_2 0000
+---1-- ING1_1 ERR1_2 0000
+----0- ING1_1 ERR1_2 0000
 
 #seconda cifra corretta
--0101--------------------------- ING1_1 ING1_2 000----------
+-0101- ING1_1 ING1_2 0000
 
 #codice errato per via della prima cifra
--------------------------------- ERR1_1 ERR1_2 000----------
+------ ERR1_1 ERR1_2 0000
 
 #terza cifra errata
--1------------------------------ ING1_2 ING2_0 000----------
---1----------------------------- ING1_2 ING2_0 000----------
----1---------------------------- ING1_2 ING2_0 000----------
-----1--------------------------- ING1_2 ING2_0 000----------
+-1---- ING1_2 ING2_0 0000
+--1--- ING1_2 ING2_0 0000
+---1-- ING1_2 ING2_0 0000
+----1- ING1_2 ING2_0 0000
 
 #codice errato per via di una o più cifre precedenti, reinserire codice
--------------------------------- ERR1_2 ING2_0 100----------
+------ ERR1_2 ING2_0 1000
 
-#terza cifra corretta (intero codice corretto)
--0000--------------------------- ING1_2 CORRETTO 000----------
+#terza cifra corretta (intero codice corretto), viene abilitato CHECK_DISPONIBILITA
+-0000- ING1_2 CORRETTO 0001
 
 #SECONDO TENTATIVO
 
 #prima cifra errata
--1------------------------------ ING2_0 ERR2_1 000----------
---0----------------------------- ING2_0 ERR2_1 000----------
----1---------------------------- ING2_0 ERR2_1 000----------
-----0--------------------------- ING2_0 ERR2_1 000----------
+-1---- ING2_0 ERR2_1 0000
+--0--- ING2_0 ERR2_1 0000
+---1-- ING2_0 ERR2_1 0000
+----0- ING2_0 ERR2_1 0000
 
 #prima cifra corretta
--0101--------------------------- ING2_0 ING2_1 000----------
+-0101- ING2_0 ING2_1 0000
 
 #seconda cifra errata
--1------------------------------ ING2_1 ERR2_2 000----------
---0----------------------------- ING2_1 ERR2_2 000----------
----1---------------------------- ING2_1 ERR2_2 000----------
-----0--------------------------- ING2_1 ERR2_2 000----------
+-1---- ING2_1 ERR2_2 0000
+--0--- ING2_1 ERR2_2 0000
+---1-- ING2_1 ERR2_2 0000
+----0- ING2_1 ERR2_2 0000
 
 #seconda cifra corretta
--0101--------------------------- ING2_1 ING2_2 000----------
+-0101- ING2_1 ING2_2 0000
 
 #codice errato per via della prima cifra
--------------------------------- ERR2_1 ERR2_2 000----------
+------ ERR2_1 ERR2_2 0000
 
 #terza cifra errata
--1------------------------------ ING2_2 ING3_0 000----------
---1----------------------------- ING2_2 ING3_0 000----------
----1---------------------------- ING2_2 ING3_0 000----------
-----1--------------------------- ING2_2 ING3_0 000----------
+-1---- ING2_2 ING3_0 0000
+--1--- ING2_2 ING3_0 0000
+---1-- ING2_2 ING3_0 0000
+----1- ING2_2 ING3_0 0000
 
 #codice errato per via di una o più cifre precedenti, reinserire codice
--------------------------------- ERR2_2 ING3_0 100----------
+------ ERR2_2 ING3_0 1000
 
-#terza cifra corretta (intero codice corretto)
--0000--------------------------- ING2_2 CORRETTO 000----------
+#terza cifra corretta (intero codice corretto), viene abilitato CHECK_DISPONIBILITA
+-0000- ING2_2 CORRETTO 0001
 
 #TERZO TENTATIVO
 
 #prima cifra errata
--1------------------------------ ING3_0 ERR3_1 000----------
---0----------------------------- ING3_0 ERR3_1 000----------
----1---------------------------- ING3_0 ERR3_1 000----------
-----0--------------------------- ING3_0 ERR3_1 000----------
+-1---- ING3_0 ERR3_1 0000
+--0--- ING3_0 ERR3_1 0000
+---1-- ING3_0 ERR3_1 0000
+----0- ING3_0 ERR3_1 0000
 
 #prima cifra corretta
--0101--------------------------- ING3_0 ING3_1 000----------
+-0101- ING3_0 ING3_1 0000
 
 #seconda cifra errata
--1------------------------------ ING3_1 ERR3_2 000----------
---0----------------------------- ING3_1 ERR3_2 000----------
----1---------------------------- ING3_1 ERR3_2 000----------
-----0--------------------------- ING3_1 ERR3_2 000----------
+-1---- ING3_1 ERR3_2 0000
+--0--- ING3_1 ERR3_2 0000
+---1-- ING3_1 ERR3_2 0000
+----0- ING3_1 ERR3_2 0000
 
 #seconda cifra corretta
--0101--------------------------- ING3_1 ING3_2 000----------
+-0101- ING3_1 ING3_2 0000
 
 #codice errato per via della prima cifra
--------------------------------- ERR3_1 ERR3_2 000----------
+------ ERR3_1 ERR3_2 0000
 
 #terza cifra errata, blocco bancomat
--1------------------------------ ING3_2 S0 001----------
---1----------------------------- ING3_2 S0 001----------
----1---------------------------- ING3_2 S0 001----------
-----1--------------------------- ING3_2 S0 001----------
+-1---- ING3_2 S0 0010
+--1--- ING3_2 S0 0010
+---1-- ING3_2 S0 0010
+----1- ING3_2 S0 0010
 
 #codice errato per via di una o più cifre precedenti, blocco bancomat
--------------------------------- ERR3_2 S0 001----------
+------ ERR3_2 S0 0010
 
-#terza cifra corretta (intero codice corretto)
--0000--------------------------- ING3_2 CORRETTO 000----------
+#terza cifra corretta (intero codice corretto), viene abilitato CHECK_DISPONIBILITA
+-0000- ING3_2 CORRETTO 0001
 
-#lo stato rimane CORRETTO sia con CASH_OK=0 sia con CASH_OK=1 per permettere ancora di prelevare
--------------------------------- CORRETTO CORRETTO 000----------
+#viene controllato CASH_OK ed eventualmente viene abilitato ABILITAZIONE_EROGAZIONE
+-----0 CORRETTO S0 0001
+-----1 CORRETTO S0 0101
+#il bancomat è stato rimosso, fine
 
 .end_kiss
 
