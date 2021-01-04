@@ -1,38 +1,36 @@
 .model mux_2i_10
 
-.inputs S A9 A8 A7 A6 A5 A4 A3 A2 A1 A0
+.inputs S A9 A8 A7 A6 A5 A4 A3 A2 A1 A0 B9 B8 B7 B6 B5 B4 B3 B2 B1 B0
 .outputs O9 O8 O7 O6 O5 O4 O3 O2 O1 O0
 
-.names ZERO
-
-.subckt mux S=S A=A9 B=ZERO \
+.subckt mux S=S A=A9 B=B9 \
         O=O9
 
-.subckt mux S=S A=A8 B=ZERO \
+.subckt mux S=S A=A8 B=B8 \
         O=O8
 
-.subckt mux S=S A=A7 B=ZERO \
+.subckt mux S=S A=A7 B=B7 \
         O=O7
 
-.subckt mux S=S A=A6 B=ZERO \
+.subckt mux S=S A=A6 B=B6 \
         O=O6
 
-.subckt mux S=S A=A5 B=ZERO \
+.subckt mux S=S A=A5 B=B5 \
         O=O5
 
-.subckt mux S=S A=A4 B=ZERO \
+.subckt mux S=S A=A4 B=B4 \
         O=O4
 
-.subckt mux S=S A=A3 B=ZERO \
+.subckt mux S=S A=A3 B=B3 \
         O=O3
 
-.subckt mux S=S A=A2 B=ZERO \
+.subckt mux S=S A=A2 B=B2 \
         O=O2
 
-.subckt mux S=S A=A1 B=ZERO \
+.subckt mux S=S A=A1 B=B1 \
         O=O1
 
-.subckt mux S=S A=A0 B=ZERO \
+.subckt mux S=S A=A0 B=B0 \
         O=O0
 
 .end
