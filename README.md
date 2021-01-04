@@ -9,7 +9,6 @@ Uno stato si dedica al controllo dell'inserimento del bancomat, 5 stati sono ded
  
 
  1. **S0**
-
 	In questo stato si controlla se il bancomat è inserito o no. Se non risulta inserito rimane in attesa altrimenti passiamo allo stato successivo.
 	
  2. **ING1_0**
