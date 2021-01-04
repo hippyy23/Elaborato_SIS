@@ -61,7 +61,7 @@ Uno stato si dedica al controllo dell'inserimento del bancomat, 5 stati sono ded
 ![enter image description here](https://cdn.discordapp.com/attachments/791357643905171471/795579323615674398/STG.png)
 
 ### Datapath
-Nel datapath viene controllato se il **CASH_RICHIESTO** è 1/4 del **CASH_DISPONIBILE**.
+Nel datapath viene controllato se il **CASH_RICHIESTO** è minore di 1/4 del **CASH_DISPONIBILE**.
 Il datapath è formato da 6 unità funzionali che servono per controllare che la specifica venga rispettata.
 
 1. Sommatore 1°
@@ -86,9 +86,9 @@ Il datapath è formato da 6 unità funzionali che servono per controllare che la
 	**OUTPUT**
 	- Il quadruplo del **CASH_RICHIESTO** 
 4. Maggiore 
- **INPUT**
+ 	**INPUT**
 	 - L'uscita dell'ultimo sommatore
-	 - 	**CASH_DIPONIBILE**
+	 - **CASH_DIPONIBILE**
 	
 	**OUTPUT**
 	- 0 se l'uscita dell'ultimo multiplexer è maggiore
