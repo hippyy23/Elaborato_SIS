@@ -9,7 +9,6 @@ Uno stato si dedica al controllo dell'inserimento del bancomat, 5 stati sono ded
  
 
  1. **S0**
-
 	In questo stato si controlla se il bancomat è inserito o no. Se non risulta inserito rimane in attesa altrimenti passiamo allo stato successivo.
 	
  2. **ING1_0**
@@ -47,7 +46,7 @@ Stati sono analoghi a **ERR1_1** per il secondo e il terzo tentativo
 Stati sono analoghi a **ERR2_1** per il secondo e il terzo tentativo
 
 ### Immagine unità di controllo
-![enter image description here](https://cdn.discordapp.com/attachments/791357643905171471/796027855455911966/STG.png)
+![enter image description here](https://cdn.discordapp.com/attachments/791357643905171471/796031901164634122/STG.png)
 
 ### Datapath
 Nel datapath viene controllato se il **CASH_RICHIESTO** è 1/4 del **CASH_DISPONIBILE**.
