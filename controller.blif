@@ -42,16 +42,16 @@
 ------ ERR1_1 ERR1_2 0000
 
 #terza cifra errata
--1---- ING1_2 ING2_0 0000
---1--- ING1_2 ING2_0 0000
----1-- ING1_2 ING2_0 0000
-----1- ING1_2 ING2_0 0000
+-1---- ING1_2 ING2_0 1000
+--1--- ING1_2 ING2_0 1000
+---1-- ING1_2 ING2_0 1000
+----1- ING1_2 ING2_0 1000
 
 #codice errato per via di una o più cifre precedenti, reinserire codice
 ------ ERR1_2 ING2_0 1000
 
-#terza cifra corretta (intero codice corretto), viene abilitato CHECK_DISPONIBILITA
--0000- ING1_2 CORRETTO 0001
+#terza cifra corretta (intero codice corretto)
+-0000- ING1_2 CORRETTO 0000
 
 #SECONDO TENTATIVO
 
@@ -77,16 +77,16 @@
 ------ ERR2_1 ERR2_2 0000
 
 #terza cifra errata
--1---- ING2_2 ING3_0 0000
---1--- ING2_2 ING3_0 0000
----1-- ING2_2 ING3_0 0000
-----1- ING2_2 ING3_0 0000
+-1---- ING2_2 ING3_0 1000
+--1--- ING2_2 ING3_0 1000
+---1-- ING2_2 ING3_0 1000
+----1- ING2_2 ING3_0 1000
 
 #codice errato per via di una o più cifre precedenti, reinserire codice
 ------ ERR2_2 ING3_0 1000
 
-#terza cifra corretta (intero codice corretto), viene abilitato CHECK_DISPONIBILITA
--0000- ING2_2 CORRETTO 0001
+#terza cifra corretta (intero codice corretto)
+-0000- ING2_2 CORRETTO 0000
 
 #TERZO TENTATIVO
 
@@ -120,10 +120,10 @@
 #codice errato per via di una o più cifre precedenti, blocco bancomat
 ------ ERR3_2 S0 0010
 
-#terza cifra corretta (intero codice corretto), viene abilitato CHECK_DISPONIBILITA
--0000- ING3_2 CORRETTO 0001
+#terza cifra corretta (intero codice corretto)
+-0000- ING3_2 CORRETTO 0000
 
-#viene controllato CASH_OK ed eventualmente viene abilitato ABILITAZIONE_EROGAZIONE
+#, viene abilitato CHECK_DISPONIBILITA, viene controllato CASH_OK ed eventualmente viene abilitato ABILITAZIONE_EROGAZIONE
 -----0 CORRETTO S0 0001
 -----1 CORRETTO S0 0101
 #il bancomat è stato rimosso, fine
