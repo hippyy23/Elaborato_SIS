@@ -41,7 +41,7 @@
 #codice errato per via della prima cifra
 ------ ERR1_1 ERR1_2 0000
 
-#terza cifra errata
+#terza cifra errata, reinserire codice
 -1---- ING1_2 ING2_0 1000
 --1--- ING1_2 ING2_0 1000
 ---1-- ING1_2 ING2_0 1000
@@ -76,7 +76,7 @@
 #codice errato per via della prima cifra
 ------ ERR2_1 ERR2_2 0000
 
-#terza cifra errata
+#terza cifra errata, reinserire codice
 -1---- ING2_2 ING3_0 1000
 --1--- ING2_2 ING3_0 1000
 ---1-- ING2_2 ING3_0 1000
