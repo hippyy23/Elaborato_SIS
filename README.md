@@ -9,59 +9,48 @@ Uno stato si dedica al controllo dell'inserimento del bancomat, 5 stati sono ded
  
 
  1. **S0**
- 
+
 	In questo stato si controlla se il bancomat è inserito o no. Se non risulta inserito rimane in attesa altrimenti passiamo allo stato successivo.
 	
  2. **ING1_0**
-
-	Questo stato serve a controllare il primo numero che viene inserito. Il passaggio allo stato successivo dipende dagli ingressi, infatti se viene inserito il numero corretto (5 decimale quindi 0101 binario) si passa alla stato **ING1_1** altrimenti allo stato **ERR1_1**.
+Questo stato serve a controllare il primo numero che viene inserito. Il passaggio allo stato successivo dipende dagli ingressi, infatti se viene inserito il numero corretto (5 decimale quindi 0101 binario) si passa alla stato **ING1_1** altrimenti allo stato **ERR1_1**.
 
  3. **ING1_1**
-
-	Lo stato **ING1_1** controlla il secondo numero in ingresso ed ha lo stesso comportamento di  **ING1_0**.
-	Se il secondo è corretto (5 decimale quindi 0101 binario)  si passa al controllo dell'ultima cifra nello stato **ING1_2** altrimenti si passa allo stato di errore **ERR1_2**.
+Lo stato **ING1_1** controlla il secondo numero in ingresso ed ha lo stesso comportamento di  **ING1_0**.
+Se il secondo è corretto (5 decimale quindi 0101 binario)  si passa al controllo dell'ultima cifra nello stato **ING1_2** altrimenti si passa allo stato di errore **ERR1_2**.
 
  4. **ERR1_1**
-
-	Lo stato **ERR1_1** passa in qualsiasi caso in  **ERR1_2**.
+Lo stato **ERR1_1** passa in qualsiasi caso in  **ERR1_2**.
 
  5. **ING1_2**
-
-	L'ultima cifra viene controllata in **ING1_2** se è corretta (ovvero 0 decimale quindi 0000 binario) si passa allo stato **CORRETTO**, se invece risulta errata il prossimo stato è **ING2_0**.
+L'ultima cifra viene controllata in **ING1_2** se è corretta (ovvero 0 decimale quindi 0000 binario) si passa allo stato **CORRETTO**, se invece risulta errata il prossimo stato è **ING2_0**.
 
  6. **ERR1_2**
-
-	Lo stato **ERR1_2** andrà sempre in **ING2_0**.
+Lo stato **ERR1_2** andrà sempre in **ING2_0**.
 
  7. **CORRETTO**
-
-	Questo stato manda il segnale di **CHECK_DISPONIBILITÀ** al datapath.
+Questo stato manda il segnale di **CHECK_DISPONIBILITÀ** al datapath.
  
  8. **ING2_0** e **ING3_0**
-
- 	Stati sono analoghi a **ING1_0** per il secondo e il terzo tentativo
+ Stati sono analoghi a **ING1_0** per il secondo e il terzo tentativo
  
- 9. **ING2_1** e **ING3_1**
+9. **ING2_1** e **ING3_1**
+Stati sono analoghi a **ING1_1** per il secondo e il terzo tentativo
 
-	Stati sono analoghi a **ING1_1** per il secondo e il terzo tentativo
+1. **ING2_2** e **ING3_2**
+Stati sono analoghi a **ING1_2** per il secondo e il terzo tentativo
 
- 10. **ING2_2** e **ING3_2**
+1. **ERR2_1** e **ERR3_1**
+Stati sono analoghi a **ERR1_1** per il secondo e il terzo tentativo
 
-	Stati sono analoghi a **ING1_2** per il secondo e il terzo tentativo
-
- 11. **ERR2_1** e **ERR3_1**
-
-	Stati sono analoghi a **ERR1_1** per il secondo e il terzo tentativo
-
- 12. **ERR2_2** e **ERR3_2**
- 
-	Stati sono analoghi a **ERR2_1** per il secondo e il terzo tentativo
+1. **ERR2_2** e **ERR3_2**
+Stati sono analoghi a **ERR2_1** per il secondo e il terzo tentativo
 
 ### Immagine unità di controllo
-![enter image description here](https://cdn.discordapp.com/attachments/791357643905171471/795579323615674398/STG.png)
+![enter image description here](https://cdn.discordapp.com/attachments/791357643905171471/796027855455911966/STG.png)
 
 ### Datapath
-Nel datapath viene controllato se il **CASH_RICHIESTO** è minore di 1/4 del **CASH_DISPONIBILE**.
+Nel datapath viene controllato se il **CASH_RICHIESTO** è 1/4 del **CASH_DISPONIBILE**.
 Il datapath è formato da 6 unità funzionali che servono per controllare che la specifica venga rispettata.
 
 1. Sommatore 1°
@@ -86,9 +75,9 @@ Il datapath è formato da 6 unità funzionali che servono per controllare che la
 	**OUTPUT**
 	- Il quadruplo del **CASH_RICHIESTO** 
 4. Maggiore 
- 	**INPUT**
+ **INPUT**
 	 - L'uscita dell'ultimo sommatore
-	 - **CASH_DIPONIBILE**
+	 - 	**CASH_DIPONIBILE**
 	
 	**OUTPUT**
 	- 0 se l'uscita dell'ultimo multiplexer è maggiore
