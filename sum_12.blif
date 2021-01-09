@@ -1,0 +1,44 @@
+.model sum_12
+
+.inputs A11 A10 A9 A8 A7 A6 A5 A4 A3 A2 A1 A0 B11 B10 B9 B8 B7 B6 B5 B4 B3 B2 B1 B0 CIN
+.outputs O11 O10 O9 O8 O7 O6 O5 O4 O3 O2 O1 O0 COUT
+
+.subckt sum A=A0 B=B0 CIN=CIN \
+        O=O0 COUT=C0
+
+.subckt sum A=A1 B=B1 CIN=C0 \
+        O=O1 COUT=C1
+
+.subckt sum A=A2 B=B2 CIN=C1 \
+        O=O2 COUT=C2
+
+.subckt sum A=A3 B=B3 CIN=C2 \
+        O=O3 COUT=C3
+
+.subckt sum A=A4 B=B4 CIN=C3 \
+        O=O4 COUT=C4
+
+.subckt sum A=A5 B=B5 CIN=C4 \
+        O=O5 COUT=C5
+
+.subckt sum A=A6 B=B6 CIN=C5 \
+        O=O6 COUT=C6
+
+.subckt sum A=A7 B=B7 CIN=C6 \
+        O=O7 COUT=C7
+
+.subckt sum A=A8 B=B8 CIN=C7 \
+        O=O8 COUT=C8
+
+.subckt sum A=A9 B=B9 CIN=C8 \
+        O=O9 COUT=C9
+
+.subckt sum A=A10 B=B10 CIN=C9 \
+        O=O10 COUT=C10
+
+.subckt sum A=A11 B=B11 CIN=C10 \
+        O=O11 COUT=COUT
+
+.end
+
+.search sum.blif
