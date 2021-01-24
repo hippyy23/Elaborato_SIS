@@ -31,6 +31,5 @@
 .search mux_2i_10.blif
 .search sum_10.blif
 .search sum_11.blif
-.search sum_12.blif
 .search gt_10.blif
 .search and.blif
