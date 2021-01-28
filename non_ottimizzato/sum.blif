@@ -1,13 +1,19 @@
 .model sum
+
 .inputs A B CIN
 .outputs O COUT
-.names K CIN O
-01 1
-10 1
-.names A CIN K COUT
--11 1
-1-0 1
+
 .names A B K
-01 1
 10 1
+01 1
+
+.names K CIN O
+10 1
+01 1
+
+.names A B CIN COUT
+11- 1
+1-1 1
+-11 1
+
 .end

@@ -1,38 +1,94 @@
 .model sum_10
-
 .inputs A9 A8 A7 A6 A5 A4 A3 A2 A1 A0 B9 B8 B7 B6 B5 B4 B3 B2 B1 B0 CIN
 .outputs O9 O8 O7 O6 O5 O4 O3 O2 O1 O0 COUT
-
-.subckt sum A=A0 B=B0 CIN=CIN \
-        O=O0 COUT=C0
-
-.subckt sum A=A1 B=B1 CIN=C0 \
-        O=O1 COUT=C1
-
-.subckt sum A=A2 B=B2 CIN=C1 \
-        O=O2 COUT=C2
-
-.subckt sum A=A3 B=B3 CIN=C2 \
-        O=O3 COUT=C3
-
-.subckt sum A=A4 B=B4 CIN=C3 \
-        O=O4 COUT=C4
-
-.subckt sum A=A5 B=B5 CIN=C4 \
-        O=O5 COUT=C5
-
-.subckt sum A=A6 B=B6 CIN=C5 \
-        O=O6 COUT=C6
-
-.subckt sum A=A7 B=B7 CIN=C6 \
-        O=O7 COUT=C7
-
-.subckt sum A=A8 B=B8 CIN=C7 \
-        O=O8 COUT=C8
-
-.subckt sum A=A9 B=B9 CIN=C8 \
-        O=O9 COUT=COUT
-
+.names [90] C8 O9
+01 1
+10 1
+.names [89] C7 O8
+01 1
+10 1
+.names [88] C6 O7
+01 1
+10 1
+.names [87] C5 O6
+01 1
+10 1
+.names [86] C4 O5
+01 1
+10 1
+.names [85] C3 O4
+01 1
+10 1
+.names [84] C2 O3
+01 1
+10 1
+.names [83] C1 O2
+01 1
+10 1
+.names [82] C0 O1
+01 1
+10 1
+.names K CIN O0
+01 1
+10 1
+.names A9 C8 [90] COUT
+-11 1
+1-0 1
+.names A0 CIN K C0
+-11 1
+1-0 1
+.names A1 C0 [82] C1
+-11 1
+1-0 1
+.names A2 C1 [83] C2
+-11 1
+1-0 1
+.names A3 C2 [84] C3
+-11 1
+1-0 1
+.names A4 C3 [85] C4
+-11 1
+1-0 1
+.names A5 C4 [86] C5
+-11 1
+1-0 1
+.names A6 C5 [87] C6
+-11 1
+1-0 1
+.names A7 C6 [88] C7
+-11 1
+1-0 1
+.names A8 C7 [89] C8
+-11 1
+1-0 1
+.names A0 B0 K
+01 1
+10 1
+.names A1 B1 [82]
+01 1
+10 1
+.names A2 B2 [83]
+01 1
+10 1
+.names A3 B3 [84]
+01 1
+10 1
+.names A4 B4 [85]
+01 1
+10 1
+.names A5 B5 [86]
+01 1
+10 1
+.names A6 B6 [87]
+01 1
+10 1
+.names A7 B7 [88]
+01 1
+10 1
+.names A8 B8 [89]
+01 1
+10 1
+.names A9 B9 [90]
+01 1
+10 1
 .end
-
-.search sum.blif
